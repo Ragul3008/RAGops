@@ -18,14 +18,8 @@ exclude = [
 python_version     = "3.12"
 strict             = false
 ignore_missing_imports = true
-exclude = [
-    "services/embedding/",
-    "services/evaluation/",
-    "services/rag-engine/",
-    "services/retrieval/",
-    "services/monitoring/",
-    "services/shared/"
-]
+exclude = "services/(embedding|evaluation|rag-engine|retrieval|monitoring|shared)/"
+
 
 
 [tool.pytest.ini_options]
