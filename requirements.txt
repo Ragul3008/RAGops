@@ -1,0 +1,45 @@
+# Web Framework & Server
+fastapi>=0.110
+uvicorn>=0.30
+pydantic>=2.6
+pydantic-settings
+
+# Database & Cache
+sqlalchemy[asyncio]>=2.0
+asyncpg>=0.29
+alembic>=1.13
+redis>=5.0
+qdrant-client>=1.8
+
+# LLM, Agent & RAG
+langchain>=0.1
+langgraph>=0.1
+langchain-openai
+langchain-anthropic
+langchain-google-genai
+sentence-transformers>=2.5
+numpy>=1.22
+httpx>=0.25
+
+# Auth & Security
+python-jose[cryptography]>=3.3
+passlib[bcrypt]>=1.7
+bcrypt>=4.0
+
+# Monitoring, Telemetry & Evaluation
+opentelemetry-sdk
+prometheus-fastapi-instrumentator
+celery>=5.3
+psutil>=5.9
+ragas>=0.1
+
+# UI / Playground
+streamlit>=1.30
+
+# Testing & CI/CD Tooling
+pytest>=8.0
+pytest-asyncio>=0.23
+pytest-cov>=4.1
+ruff>=0.2
+mypy>=1.8
+bandit>=1.7
