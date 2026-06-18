@@ -23,8 +23,10 @@ httpx>=0.25
 
 # Auth & Security
 python-jose[cryptography]>=3.3
+pyjwt>=2.0
 passlib[bcrypt]>=1.7
 bcrypt>=4.0
+
 
 # Monitoring, Telemetry & Evaluation
 opentelemetry-sdk
