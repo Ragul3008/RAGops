@@ -1,0 +1,14 @@
+# Security Scanning
+name: Security
+on:
+  schedule:
+    - cron: '0 2 * * *'
+jobs:
+  trivy:
+    steps:
+      - name: Container scanning
+        uses: aquasecurity/trivy-action@v0.20.0
+  snyk:
+    steps:
+      - name: Dependency audit
+        run: snyk test --all-projects

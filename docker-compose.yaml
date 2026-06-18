@@ -1,0 +1,48 @@
+version: "3.9"
+services:
+  postgres:
+    image: pgvector/pgvector:pg16
+    environment:
+      POSTGRES_DB:       ragops
+      POSTGRES_USER:     ragops
+      POSTGRES_PASSWORD: 0308
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  qdrant:
+    image: qdrant/qdrant:v1.9.0
+    ports: ["6333:6333","6334:6334"]
+    volumes: [qdrant_storage:/qdrant/storage]
+
+  redis:
+    image: redis:7-alpine
+    command: redis-server --requirepass ragops_dev
+    ports: ["6379:6379"]
+
+  celery-worker:
+    build: ./services/embedding
+    command: celery -A app.workers worker -Q embedding,evaluation
+    environment:
+      - CELERY_BROKER_URL=redis://:ragops_dev@redis:6379/0
+    depends_on: [redis, postgres, qdrant]
+
+  flower:
+    image: mher/flower
+    command: celery flower --broker=redis://:ragops_dev@redis:6379/0
+    ports: ["5555:5555"]
+    depends_on: [redis]
+
+  prometheus:
+    image: prom/prometheus:v2.51.0
+    volumes: [./infra/prometheus.yml:/etc/prometheus/prometheus.yml]
+    ports: ["9090:9090"]
+
+  grafana:
+    image: grafana/grafana:10.4.0
+    ports: ["3001:3000"]
+    volumes: [grafana_data:/var/lib/grafana]
+
+volumes:
+  pgdata:
+  qdrant_storage:
+  grafana_data:

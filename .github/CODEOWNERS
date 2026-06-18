@@ -1,0 +1,7 @@
+# CODEOWNERS
+# Services
+/services/auth/          @ragops/backend-team
+/services/embedding/     @ragops/ai-team
+/services/evaluation/    @ragops/ai-team
+/infra/                  @ragops/devops-team
+/frontend/               @ragops/frontend-team

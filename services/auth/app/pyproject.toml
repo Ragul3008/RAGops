@@ -1,0 +1,16 @@
+[project]
+name = "ragops-auth"
+version = "1.0.0"
+requires-python = ">=3.12"
+dependencies = [
+    "fastapi>=0.110",
+    "sqlalchemy[asyncio]>=2.0",
+    "alembic>=1.13",
+    "pydantic>=2.6",
+    "pydantic-settings",
+    "python-jose[cryptography]",
+    "passlib[bcrypt]",
+    "redis>=5.0",
+    "opentelemetry-sdk",
+    "prometheus-fastapi-instrumentator",
+]

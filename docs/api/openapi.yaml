@@ -1,0 +1,38 @@
+openapi: 3.1.0
+info:
+  title:   RAGOps API
+  version: 1.0.0
+  license:
+    name: Proprietary
+
+servers:
+  - url: https://api.ragops.io/v1
+
+security:
+  - BearerAuth: []
+
+components:
+  securitySchemes:
+    BearerAuth:
+      type:         http
+      scheme:       bearer
+      bearerFormat: JWT
+
+paths:
+  /auth/login:
+    post:
+      summary: Authenticate user
+      tags: [Auth]
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        200:
+          description: Token pair
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/TokenResponse'
