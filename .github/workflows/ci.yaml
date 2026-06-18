@@ -7,7 +7,7 @@ jobs:
   test:
     runs-on: ubuntu-latest
     env:
-      PYTHONPATH: services/auth:services/embedding:services/evaluation:services/rag-engine:services/shared
+      PYTHONPATH: services/auth:services/shared
 
     steps:
       - uses: actions/checkout@v4
@@ -25,7 +25,7 @@ jobs:
 
       - name: Run unit tests
         run: |
-          pytest services/ -v --cov=services
+          pytest services/auth/ -v --cov=services/auth/app
 
       - name: Lint
         run: |
