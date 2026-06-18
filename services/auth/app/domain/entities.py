@@ -14,7 +14,8 @@ class User:
     id: UUID = field(default_factory=uuid4)
     email: str = ""
     hashed_password: str = ""
-    tenant_id: UUID = None
+    tenant_id: UUID | None = None
+
     roles: list[UserRole] = field(default_factory=list)
     is_active: bool = True
     created_at: datetime = field(

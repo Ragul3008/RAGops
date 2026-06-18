@@ -1,5 +1,5 @@
 from prometheus_client import (
-    Counter, Histogram, Gauge, Summary
+    Counter, Histogram, Gauge
 )
 
 # Request metrics

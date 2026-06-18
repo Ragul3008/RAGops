@@ -1,5 +1,4 @@
-from typing import TypedDict, Annotated
-from operator import add
+from typing import TypedDict
 
 class RAGState(TypedDict):
     query:           str

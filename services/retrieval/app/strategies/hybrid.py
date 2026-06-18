@@ -31,8 +31,8 @@ class HybridRetriever:
         for rs in result_sets:
             for rank, doc in enumerate(rs):
                 did = doc["id"]
-                scores[did] = scores.get(did, 0) + \\
-                    1.0 / (k + rank + 1)
+                scores[did] = scores.get(did, 0) + 1.0 / (k + rank + 1)
+
         return sorted(
             scores.keys(),
             key=lambda d: scores[d],

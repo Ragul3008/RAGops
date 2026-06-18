@@ -1,4 +1,3 @@
-from langchain_openai import ChatOpenAI
 
 class GEvalEvaluator:
     """G-Eval: LLM-as-judge evaluation using

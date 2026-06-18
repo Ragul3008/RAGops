@@ -1,5 +1,4 @@
 import socket
-import os
 
 from opentelemetry import trace
 from opentelemetry.sdk.trace import TracerProvider

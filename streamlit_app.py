@@ -2,7 +2,6 @@ import streamlit as st
 import json
 import os
 import requests
-import pandas as pd
 from dotenv import load_dotenv
 
 # Load environment variables
@@ -62,7 +61,7 @@ def read_local_store():
     if not os.path.exists(file_path):
         return []
     try:
-        with open(file_path, "r", encoding="utf-8") as f:
+        with open(file_path, encoding="utf-8") as f:
             return json.load(f)
     except Exception:
         return []

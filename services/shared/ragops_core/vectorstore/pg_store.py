@@ -1,11 +1,10 @@
 import uuid
 import numpy as np
 from sqlalchemy.ext.asyncio import create_async_engine
-from sqlalchemy import Table, Column, String, Float, MetaData, Integer, select, delete, text
+from sqlalchemy import Table, Column, String, MetaData, select, delete, text
 from sqlalchemy.dialects.postgresql import JSONB
 from pgvector.sqlalchemy import Vector
 from .base import VectorStore
-import os
 
 metadata = MetaData()
 document_chunks = Table(

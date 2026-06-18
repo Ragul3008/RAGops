@@ -1,8 +1,5 @@
 from app.workers.celery import celery_app
 from app.evaluators.ragas_evaluator import RAGASEvaluator
-from app.evaluators.hallucination_detector import (
-    HallucinationDetector
-)
 
 # Helper stubs for missing functions
 def fetch_eval_samples(run_id: str) -> list:

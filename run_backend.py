@@ -3,7 +3,6 @@ import os
 import sys
 import time
 import psutil
-import signal
 
 # ── Venv guard ────────────────────────────────────────────────────────────────
 # Ensure this script always runs inside the project's virtual environment.
@@ -103,7 +102,7 @@ def wait_for_port(port, host="127.0.0.1", timeout=15):
             with socket.create_connection((host, port), timeout=1):
                 print(f"[OK] Service on port {port} is ready.")
                 return True
-        except (socket.timeout, ConnectionRefusedError):
+        except (TimeoutError, ConnectionRefusedError):
             time.sleep(0.5)
     print(f"[WARN] Service on port {port} did not start within {timeout} seconds.")
     return False

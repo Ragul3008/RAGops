@@ -1,6 +1,5 @@
 import jwt
 from app.core.config import settings
-from app.domain.entities import User
 from app.domain.repositories import IUserRepository, ITokenStore
 from app.core.security import (
     create_access_token,

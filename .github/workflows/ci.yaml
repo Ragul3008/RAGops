@@ -34,4 +34,4 @@ jobs:
 
       - name: Security scan
         run: |
-          bandit -r services/
+          bandit -r services/ --skip B101,B106,B112

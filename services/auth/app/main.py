@@ -1,6 +1,5 @@
 from fastapi import FastAPI
 from app.api.v1 import router
-from app.core.config import settings
 from app.core.middleware import (
     TenantMiddleware,
     RateLimitMiddleware,

@@ -1,5 +1,4 @@
 import asyncio
-import numpy as np
 from app.retrieval.factory import get_retriever
 from app.embedding.factory import get_embedder
 from app.state import RAGState
